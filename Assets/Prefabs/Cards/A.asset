@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: A
   m_EditorClassIdentifier: 
   _cardSprite: {fileID: 394905776, guid: b7dadc85e36ecf24f931852db4dbd0ac, type: 3}
-  _score: 10
+  _score: 11
