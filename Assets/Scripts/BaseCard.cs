@@ -8,8 +8,8 @@ using UnityEngine;
 public class BaseCard : ScriptableObject
 {
     [SerializeField] private Sprite _cardSprite;
-    [SerializeField] private int _score;
+    [SerializeField] private int[] _score;
 
-    public int Score { get => _score; }
+    public int[] Score { get => _score; }
     public Sprite CardSprite { get => _cardSprite; }
 }

@@ -20,13 +20,34 @@ public class BasePlayer : MonoBehaviour
         card.transform.position = _cardPosition;
         _cardPosition += new Vector3(0.25f, 0.25f, 0);
     }
-    public virtual void AddScore(int score)
+    public virtual void AddScore(BaseCard baseCard)
     {
-        currentScore += score;
+        if (baseCard.Score.Length == 0)
+            currentScore += baseCard.Score[0];
+        else if (baseCard.Score.Length > 0)
+            currentScore = BestScore(baseCard);           
         _scoreTXT.text = currentScore.ToString();
     }
     private void Awake()
     {
         _cardPosition = _deckPostion.position;
+    }
+    private int BestScore(BaseCard baseCard)
+    {
+        int dataScore = currentScore;
+        List<int> checkScore = new List<int>();
+        for (int i = 0; i < baseCard.Score.Length; i++)
+        {
+            checkScore.Add(currentScore + baseCard.Score[i]);
+        }
+        int bestScore = checkScore[0];
+        for (int i = 0; i < checkScore.Count; i++)
+        {
+            if (checkScore[i] > bestScore && checkScore[i] <= 21)
+            {
+                bestScore = checkScore[i];
+            }
+        }
+        return bestScore;
     }
 }

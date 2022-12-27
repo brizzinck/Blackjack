@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94477b169a145b74383541143b44c7bc, type: 3}
   m_Name: A
   m_EditorClassIdentifier: 
-  _cardSprite: {fileID: 394905776, guid: b7dadc85e36ecf24f931852db4dbd0ac, type: 3}
-  _score: 11
+  _cardSprite: {fileID: -955865978, guid: 9cbed6dca16c05d4591439e1601e6dc8, type: 3}
+  _score: 010000000b000000

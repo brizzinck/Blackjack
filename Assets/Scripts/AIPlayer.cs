@@ -11,7 +11,7 @@ public class AIPlayer : BasePlayer
     {
         foreach (var score in scores)
         {
-            if (score != 21 && CurrentScore < score)
+            if (CurrentScore < score)
             {
                 HitAI?.Invoke();
             }

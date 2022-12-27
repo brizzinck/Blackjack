@@ -46,7 +46,7 @@ public class Dealer : MonoBehaviour
         if (_baseCards.Count <= 0) return;
         _currentCard = _baseCards[Random.Range(0, _baseCards.Count)];
         _players[_indexCurrentPlayer].AddCard(SpawnCard(_players[_indexCurrentPlayer]));
-        _players[_indexCurrentPlayer].AddScore(_currentCard.Score);
+        _players[_indexCurrentPlayer].AddScore(_currentCard);
         _baseCards.Remove(_currentCard);
         _players[_indexCurrentPlayer].AIAnalysis(Scores());
         CheckWinner();
