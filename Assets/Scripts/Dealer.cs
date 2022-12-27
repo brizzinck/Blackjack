@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Dealer : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Dealer : MonoBehaviour
     [SerializeField] private Button _stand;
     [SerializeField] private Button _restart;
     [SerializeField] private GameObject _winnerPanel;
+    [SerializeField] private GameObject _inputPanel;
     [SerializeField] private TMPro.TextMeshProUGUI _name;
 
     [SerializeField] private BaseDeck _baseDeck;
@@ -79,28 +82,29 @@ public class Dealer : MonoBehaviour
     }
     private void CheckWinner()
     {
-        BasePlayer winner;
+        int indexWinner = 0;
         int winnerScore = 0;
         for (int i = 0; i < _players.Count; i++)
         {
             if (_players[i].CurrentScore > winnerScore && _players[i].CurrentScore < 21)
             {
                 winnerScore = _players[i].CurrentScore;
-                winner = _players[i];
+                indexWinner = i;
             }
             else if (_players[i].CurrentScore > 21)
             {
                 _players.Remove(_players[i]);
             }
-        }
-        if (_players.Count == 1)
-        {
-            DisplayWinner();
+            if (_players.Count == 1 || _players[indexWinner].CurrentScore == 21)
+            {
+                DisplayWinner(indexWinner);
+            }
         }
     }
-    private void DisplayWinner()
+    private void DisplayWinner(int index)
     {
-        _name.text = _players[0].name;
+        _name.text = _players[index].name;
+        _inputPanel.SetActive(false);
         _winnerPanel.SetActive(true);
     }
     private void Restart()
