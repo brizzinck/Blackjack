@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94477b169a145b74383541143b44c7bc, type: 3}
-  m_Name: 10
+  m_Name: 9hearts
   m_EditorClassIdentifier: 
-  _cardSprite: {fileID: -900827694, guid: 9cbed6dca16c05d4591439e1601e6dc8, type: 3}
-  _score: 0a000000
+  _cardSprite: {fileID: -1320756941, guid: 9cbed6dca16c05d4591439e1601e6dc8, type: 3}
+  _score: 09000000
